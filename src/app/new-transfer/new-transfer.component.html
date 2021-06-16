@@ -1,17 +1,17 @@
 <section class="container">
-<form class="app-form">
+<form class="app-form" (ngSubmit)="transfer()">
     <h2 class="app-form__titulo">NEW TRANSFER</h2>
     <div class="form-field">
         <label class="form-field__label" for="value">value</label>
-        <input class="form-field__input" id="value" type="text">
+        <input class="form-field__input" id="value" type="number" [(ngModel)]="value" name="value">
     </div>
     <div class="form-field">
         <label class="form-field__label" for="destiny">destiny</label>
-        <input class="form-field__input" id="destiny" type="text">
+        <input class="form-field__input" id="destiny" type="text" [(ngModel)]="destiny" name="destiny">
     </div>
 
     <div class="button-wrapper">
-        <button class="button">transfer</button>
+        <button class="button" type="submit">transfer</button>
     </div>
 </form>
 </section>

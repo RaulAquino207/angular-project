@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+
+  transfer_infos? : any[] = [];
+
+  transfer($event: any){
+    console.log($event);
+    const values = {...$event, date: new Date()};
+    this.transfer_infos?.push(values);
+  }
+
+  exibirModalErro(){
+    alert('Provide positive values');
+  }
 }

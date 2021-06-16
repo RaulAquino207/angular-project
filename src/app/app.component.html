@@ -1,1 +1,3 @@
-<app-new-transfer></app-new-transfer>
+<app-new-transfer (whenTransferring)="transfer($event)" (errorValues)="exibirModalErro()"></app-new-transfer>
+
+<app-extract [transfer_infos]="transfer_infos"></app-extract>
