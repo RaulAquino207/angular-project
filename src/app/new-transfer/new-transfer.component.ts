@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-    selector:'new-transfer',
+    selector:'app-new-transfer',
     templateUrl:'./new-transfer.component.html',
     styleUrls:['./new-transfer.component.scss']
 })
