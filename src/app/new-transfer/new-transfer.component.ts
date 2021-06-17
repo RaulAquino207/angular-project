@@ -14,7 +14,7 @@ export class NewTransferComponent{
     value! : number;
     destiny! : number;
 
-    transfer(){
+    transfer_submit(){
         // console.log(`value : ${this.value}`);
         // console.log(`destiny : ${this.destiny}`);
 
