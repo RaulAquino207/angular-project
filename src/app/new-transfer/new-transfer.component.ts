@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from "@angular/core";
+import { Transfer } from "../models/transfer.model";
+import { MyServiceService } from "../services/my-service.service";
 
 @Component({
     selector:'app-new-transfer',
@@ -8,11 +10,13 @@ import { Component, EventEmitter, Output } from "@angular/core";
 
 export class NewTransferComponent{
 
-    @Output() whenTransferring = new EventEmitter<any>();
+    // @Output() whenTransferring = new EventEmitter<any>();
     @Output() errorValues = new EventEmitter<string>();
 
     value! : number;
     destiny! : number;
+
+    constructor(private service : MyServiceService){}
 
     transfer_submit(){
         // console.log(`value : ${this.value}`);
@@ -20,13 +24,21 @@ export class NewTransferComponent{
 
         if(this.itsValid()){
             alert('Requested new transfer');
-            this.whenTransferring.emit({
-                value : this.value,
-                destiny : this.destiny
+            // this.whenTransferring.emit({
+            //     value : this.value,
+            //     destiny : this.destiny
+            // })
+
+            const valuesEmit : Transfer = {value : this.value, destiny : this.destiny}
+            this.service.add(valuesEmit).subscribe((result) => {
+                console.log(result);
+                this.clearFields();
+            }, (error) => {
+                console.log(error);
             })
         }
 
-        this.clearFields()
+        // this.clearFields();
     }
 
     clearFields(){

@@ -13,11 +13,6 @@ export class AppComponent {
 
   }
 
-  transfer($event: any){
-    console.log($event);
-    this.service.add($event);
-  }
-
   exibirModalErro(){
     alert('Provide positive values');
   }

@@ -7,6 +7,7 @@ import { NewTransferComponent } from './new-transfer/new-transfer.component';
 import { ExtractComponent } from './extract/extract.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt'
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localePt, 'pt')
 
@@ -18,7 +19,8 @@ registerLocaleData(localePt, 'pt')
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'},
