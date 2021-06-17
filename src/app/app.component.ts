@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyServiceService } from './services/my-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-app';
 
-  transfer_infos? : any[] = [];
+  constructor(private service : MyServiceService){
+
+  }
 
   transfer($event: any){
     console.log($event);
-    const values = {...$event, date: new Date()};
-    this.transfer_infos?.push(values);
+    this.service.add($event);
   }
 
   exibirModalErro(){
