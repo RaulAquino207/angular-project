@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from "@angular/core";
+import { Router } from "@angular/router";
 import { Transfer } from "../models/transfer.model";
 import { MyServiceService } from "../services/my-service.service";
 
@@ -16,7 +17,7 @@ export class NewTransferComponent{
     value! : number;
     destiny! : number;
 
-    constructor(private service : MyServiceService){}
+    constructor(private service : MyServiceService, private router : Router){}
 
     transfer_submit(){
         // console.log(`value : ${this.value}`);
@@ -33,6 +34,7 @@ export class NewTransferComponent{
             this.service.add(valuesEmit).subscribe((result) => {
                 console.log(result);
                 this.clearFields();
+                this.router.navigateByUrl('extract');
             }, (error) => {
                 console.log(error);
             })

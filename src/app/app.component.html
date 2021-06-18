@@ -1,3 +1,10 @@
-<app-new-transfer (errorValues)="exibirModalErro()"></app-new-transfer>
+<!-- <app-new-transfer (errorValues)="exibirModalErro()"></app-new-transfer>
 
-<app-extract></app-extract>
+<app-extract></app-extract> -->
+<header>
+    <a routerLink="extract">Bytebank</a>
+    <a routerLink="new-transfer">New Transfer</a>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
